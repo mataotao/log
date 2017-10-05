@@ -1,0 +1,30 @@
+<?php
+$config = array();
+$config["connection_mode"]=array(
+                                    "s"=>array("table_name"=>"stock_bb","way"=>"main")
+                                );
+$config["field"]=array(
+                        "s"=>array(
+                                //基本字段
+                                array("name"=>"bb_id","db_field"=>"bb_id","format"=>""),
+                                array("name"=>"member_name","db_field"=>"member_name","format"=>""),
+                                
+                                //时间字段
+                                array("name"=>"time_add","db_field"=>"bb_time","format"=>""),
+                                array("name"=>"time_add_date","db_field"=>"bb_time","format"=>"dateFull"),
+                                array("name"=>"time_update","db_field"=>"bb_time","format"=>""),
+                                array("name"=>"time_update_date","db_field"=>"bb_time","format"=>"dateFull"),
+                            )
+                        );
+$config["condition"]=array(
+                            "s"=>array(
+                                //基本字段
+                                array("name"=>"max_id","field"=>"bb_id","exist"=>"assign","type"=>">"),//id>0
+                                array("name"=>"bb_id","field"=>"bb_id","exist"=>"assign","type"=>"="), 
+                            )
+                       );
+$config["sort"]=array(
+    //时间排序
+    array("table"=>"s","name"=>"id_asc","field"=>"bb_id","exist"=>"assign","type"=>"asc"),
+    array("table"=>"s","name"=>"id_desc","field"=>"bb_id","exist"=>"assign","type"=>"desc"),
+);
